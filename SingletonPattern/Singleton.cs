@@ -17,11 +17,14 @@ namespace SingletonPattern
           returns a single instance of the object. 
           That single instance created is responsible to coordinate actions across the application. */
 
-       // Lazy Loading
+        // Lazy Loading
         //private static Singleton instance = null;
 
-       //Eager loading, CLR takes care of thread-safety
-       private static readonly Singleton instance = new Singleton();
+        //Eager loading, CLR takes care of thread-safety
+        //private static readonly Singleton instance = new Singleton();
+
+        //Lazy keyword
+        private static readonly Lazy<Singleton> instance = new Lazy<Singleton>(() => new Singleton());
 
         public static Singleton GetInstance 
         { 
@@ -30,7 +33,7 @@ namespace SingletonPattern
                 //    if(instance == null)
                 //        instance = new Singleton();
 
-                return instance;
+                return instance.Value;
             }
         }
         private Singleton()

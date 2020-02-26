@@ -10,6 +10,7 @@ namespace SingletonPattern
     {
         static void Main(string[] args)
         {
+            //Createa multi-threaded environment
             Parallel.Invoke(
                 () => DisplayEmployee(),
                 () => DisplayStudent()
