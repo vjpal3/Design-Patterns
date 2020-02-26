@@ -10,6 +10,13 @@ namespace SingletonPattern
     {
         static void Main(string[] args)
         {
+            Singleton employee = Singleton.GetInstance;
+            var msg = "From Employee";
+            employee.PrintDetails(msg);
+            
+            Singleton student = Singleton.GetInstance;
+            msg = "From Student";
+            student.PrintDetails(msg);
 
         }
     }
