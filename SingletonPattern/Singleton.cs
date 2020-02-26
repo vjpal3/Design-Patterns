@@ -17,17 +17,21 @@ namespace SingletonPattern
           returns a single instance of the object. 
           That single instance created is responsible to coordinate actions across the application. */
 
-        private static Singleton instance = null;
+       // Lazy Loading
+        //private static Singleton instance = null;
+
+       //Eager loading, CLR takes care of thread-safety
+       private static readonly Singleton instance = new Singleton();
 
         public static Singleton GetInstance 
         { 
-            get 
-            { 
-                if(instance == null)
-                    instance = new Singleton();
+            get
+            {
+                //    if(instance == null)
+                //        instance = new Singleton();
 
                 return instance;
-            } 
+            }
         }
         private Singleton()
         {

@@ -10,14 +10,25 @@ namespace SingletonPattern
     {
         static void Main(string[] args)
         {
-            Singleton employee = Singleton.GetInstance;
-            var msg = "From Employee";
-            employee.PrintDetails(msg);
-            
-            Singleton student = Singleton.GetInstance;
-            msg = "From Student";
-            student.PrintDetails(msg);
+            Parallel.Invoke(
+                () => DisplayEmployee(),
+                () => DisplayStudent()
+            );
 
+            Console.ReadLine();
+
+        }
+
+        private static void DisplayStudent()
+        {
+            Singleton student = Singleton.GetInstance;
+            student.PrintDetails("From Student");
+        }
+
+        private static void DisplayEmployee()
+        {
+            Singleton employee = Singleton.GetInstance;
+            employee.PrintDetails("From Employee");
         }
     }
 }
