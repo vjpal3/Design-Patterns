@@ -6,11 +6,7 @@ using System.Threading.Tasks;
 
 namespace SingletonPattern
 {
-    class Program
+    class SingletonDemo
     {
-        static void Main(string[] args)
-        {
-
-        }
     }
 }
