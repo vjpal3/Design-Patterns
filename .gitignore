@@ -338,3 +338,20 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+/Web/App_Start
+/Web/fonts
+/Web/Properties
+/Web/Scripts
+/Web/Views/Web.config
+/Web/favicon.ico
+/Web/Web.Release.config
+/Web/Web.Debug.config
+/Web/Web.csproj
+/Web/Web.config
+/Web/packages.config
+/Web/Global.asax.cs
+/Web/Global.asax
+/Web/Models/EmployeeModel.tt
+/Web/Models/EmployeeModel.edmx.diagram
+/Web/Models/EmployeeModel.edmx
+/Web/Content
