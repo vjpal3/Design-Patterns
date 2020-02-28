@@ -6,7 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Web.Factory;
+using Web.Factory.FactoryMethod;
 using Web.Managers;
 using Web.Models;
 
@@ -54,11 +54,9 @@ namespace Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var empFactory = new EmployeeManagerFactory();
-                IEmployeeManager empManager = empFactory.GetEmployeeManager(employee.EmployeeTypeId);
-                employee.Bonus = empManager.GetBonus();
-                employee.HourlyPay = empManager.GetPay();
-
+                BaseEmployeeFactory empFactory = new EmployeeManagerFactory().CreateFactory(employee);
+                empFactory.ApplySalary();
+                
                 db.Employees.Add(employee);
                 db.SaveChanges();
                 return RedirectToAction("Index");
