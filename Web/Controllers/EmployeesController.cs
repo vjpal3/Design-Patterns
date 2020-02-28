@@ -6,6 +6,8 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Web.Factory;
+using Web.Managers;
 using Web.Models;
 
 namespace Web.Controllers
@@ -52,16 +54,11 @@ namespace Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (employee.EmployeeTypeId == 1)
-                {
-                    employee.HourlyPay = 8;
-                    employee.Bonus = 10;
-                }
-                else if (employee.EmployeeTypeId == 2)
-                {
-                    employee.HourlyPay = 12;
-                    employee.Bonus = 5;
-                }
+                var empFactory = new EmployeeManagerFactory();
+                IEmployeeManager empManager = empFactory.GetEmployeeManager(employee.EmployeeTypeId);
+                employee.Bonus = empManager.GetBonus();
+                employee.HourlyPay = empManager.GetPay();
+
                 db.Employees.Add(employee);
                 db.SaveChanges();
                 return RedirectToAction("Index");
