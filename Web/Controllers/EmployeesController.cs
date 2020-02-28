@@ -6,13 +6,27 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Logger;
 using Web.Models;
 
 namespace Web.Controllers
 {
     public class EmployeesController : Controller
     {
+        private ILog iLog;
         private EmployeePortalEntities db = new EmployeePortalEntities();
+
+        public EmployeesController()
+        {
+            iLog = Log.GetInstance;
+        }
+
+        protected override void OnException(ExceptionContext filterContext)
+        {
+            iLog.LogException(filterContext.Exception.ToString());
+            filterContext.ExceptionHandled = true;
+            this.View("Error").ExecuteResult(this.ControllerContext);
+        }
 
         // GET: Employees
         public ActionResult Index()
