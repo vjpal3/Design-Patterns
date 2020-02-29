@@ -15,9 +15,24 @@ namespace Web.Builder.ConcreteBuilder
             desktop.HDDSize = size;
         }
 
+        public void AddKeyBoard(string type)
+        {
+            desktop.KeyBoard = type;
+        }
+
         public void AddMemory(string memory)
         {
             desktop.RAM = memory;
+        }
+
+        public void AddMouse(string type)
+        {
+            desktop.Mouse = type;
+        }
+
+        public void AddTouchScreen(string enabled)
+        {
+            return;
         }
 
         public ComputerSystem GetSystem()

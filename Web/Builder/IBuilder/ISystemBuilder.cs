@@ -11,7 +11,11 @@ namespace Web.Builder.IBuilder
     {
         void AddMemory(string memory);
         void AddDrive(string size);
- 
+
+        void AddKeyBoard(string type);
+        void AddMouse(string type);
+        void AddTouchScreen(string enabled);
+
         ComputerSystem GetSystem();
     }
 }
