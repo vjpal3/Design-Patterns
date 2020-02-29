@@ -17,6 +17,10 @@ namespace Web.Controllers
     {
         private EmployeePortalEntities db = new EmployeePortalEntities();
 
+        public ActionResult BuildSystem(int? employeeId)
+        {
+            return View(employeeId);
+        }
         // GET: Employees
         public ActionResult Index()
         {
