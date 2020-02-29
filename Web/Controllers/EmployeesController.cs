@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Web.Factory.AbstractFactory;
 using Web.Factory.FactoryMethod;
 using Web.Managers;
 using Web.Models;
@@ -56,6 +57,10 @@ namespace Web.Controllers
             {
                 BaseEmployeeFactory empFactory = new EmployeeManagerFactory().CreateFactory(employee);
                 empFactory.ApplySalary();
+
+                IComputerFactory factory = new EmployeeSystemFactory().Create(employee);
+                EmployeeSystemManager manager = new EmployeeSystemManager(factory);
+                employee.ComputerDetails = manager.GetSystemDetails();
                 
                 db.Employees.Add(employee);
                 db.SaveChanges();
