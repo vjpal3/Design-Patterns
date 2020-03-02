@@ -10,29 +10,32 @@ namespace Web.Builder.ConcreteBuilder
     public class LaptopBuilder : ISystemBuilder
     {
         ComputerSystem laptop = new ComputerSystem();
-        public void AddDrive(string size)
+        public ISystemBuilder AddDrive(string size)
         {
             laptop.HDDSize = size;
+            return this;
         }
 
-        public void AddKeyBoard(string type)
+        public ISystemBuilder AddKeyBoard(string type)
         {
-            return;
+            return this;
         }
 
-        public void AddMemory(string memory)
+        public ISystemBuilder AddMemory(string memory)
         {
             laptop.RAM = memory;
+            return this;
         }
 
-        public void AddMouse(string type)
+        public ISystemBuilder AddMouse(string type)
         {
-            return;
+            return this;
         }
 
-        public void AddTouchScreen(string enabled)
+        public ISystemBuilder AddTouchScreen(string enabled)
         {
             laptop.TouchScreen = enabled;
+            return this;
         }
 
         public ComputerSystem GetSystem()

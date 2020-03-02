@@ -9,12 +9,12 @@ namespace Web.Builder.IBuilder
 {
     public interface ISystemBuilder
     {
-        void AddMemory(string memory);
-        void AddDrive(string size);
+        ISystemBuilder AddMemory(string memory);
+        ISystemBuilder AddDrive(string size);
 
-        void AddKeyBoard(string type);
-        void AddMouse(string type);
-        void AddTouchScreen(string enabled);
+        ISystemBuilder AddKeyBoard(string type);
+        ISystemBuilder AddMouse(string type);
+        ISystemBuilder AddTouchScreen(string enabled);
 
         ComputerSystem GetSystem();
     }

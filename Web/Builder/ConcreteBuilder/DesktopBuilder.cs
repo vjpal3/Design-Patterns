@@ -10,29 +10,33 @@ namespace Web.Builder.ConcreteBuilder
     public class DesktopBuilder : ISystemBuilder
     {
         ComputerSystem desktop = new ComputerSystem();
-        public void AddDrive(string size)
+        public ISystemBuilder AddDrive(string size)
         {
             desktop.HDDSize = size;
+            return this;
         }
 
-        public void AddKeyBoard(string type)
+        public ISystemBuilder AddKeyBoard(string type)
         {
             desktop.KeyBoard = type;
+            return this;
         }
 
-        public void AddMemory(string memory)
+        public ISystemBuilder AddMemory(string memory)
         {
             desktop.RAM = memory;
+            return this;
         }
 
-        public void AddMouse(string type)
+        public ISystemBuilder AddMouse(string type)
         {
             desktop.Mouse = type;
+            return this;
         }
 
-        public void AddTouchScreen(string enabled)
+        public ISystemBuilder AddTouchScreen(string enabled)
         {
-            return;
+            return this;
         }
 
         public ComputerSystem GetSystem()
