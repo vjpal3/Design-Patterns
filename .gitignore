@@ -355,3 +355,6 @@ healthchecksdb
 /Web/Models/EmployeeModel.edmx.diagram
 /Web/Models/EmployeeModel.edmx
 /Web/Content
+/AdapterDesignPattern/AdapterDesignPattern.csproj
+/AdapterDesignPattern/App.config
+/AdapterDesignPattern/packages.config
